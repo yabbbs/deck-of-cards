@@ -1,9 +1,46 @@
 .card-container {
-    width: 90vw;
-    height: 60vh;
-    margin: 0 auto;
+    width: 100vw;
+    height: 80vh;
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
-    background-color: white;
+    justify-content: space-around;
+}
+
+.row {
+    width: 100vw;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    width: 15vw;
+    text-align: center;
+}
+
+.cards {
+    max-width: 80vw;
+    overflow-y: scroll;
+    display: flex;
+    // border: 1px grey solid;
+}
+
+.face-container {
+    height: 100%;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card {
+    width: 80px;
+    height: 110px;
+}
+
+.value {
+    font-size: 8px;
+    transform: to-upper-case;
+    margin-top: -25px;
 }

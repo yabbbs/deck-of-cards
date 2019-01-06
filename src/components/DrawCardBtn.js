@@ -1,26 +1,61 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addToCounter } from '../actions'
+import { 
+  addToCounter,
+  getNewDeck,
+  getNewCards
+} from '../actions'
 
 import '../styles/button.scss';
-// import Button from '@material-ui/core/Button';
 
 class DrawCardBtn extends Component {
-    render() {
-      return (
-        <div className='btn-container' onClick={this.props.addToCounter}>
-          Press to draw two cards until you get a queen in each face !
-          <div className="pure-material-button-contained">
-            Draw Two Cards
-          </div>
-        </div>
-      );
+
+  constructor(){
+    super();
+    this.state={
+      deckId: null,
+      cards: []
     }
   }
-  
-  // export default DrawCardBtn;
 
+  startNewGame = () => {
+    this.setState({cards: []});
+    axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
+      .then(res => {
+        this.setState({deckId: res.data.deck_id});
+        this.props.getNewDeck();
+    })
+  }
+
+  twoNewCards = () => {
+    axios.get(`https://deckofcardsapi.com/api/deck/${this.state.deckId}/draw/?count=2`)
+    .then(res => {
+      this.props.getNewCards(res.data.cards);
+    })
+    
+  }
+
+  render() {
+    // console.log('huh', typeof this.state.cards)
+    return (
+        <div className='btn-container'>
+          <div className="pure-material-button-contained" onClick={this.startNewGame}>
+            Start New Game
+          </div>
+          {
+            this.state.deckId 
+            ? 
+            <div className="pure-material-button-contained" onClick={this.twoNewCards}>
+              Draw Two Cards
+            </div> 
+            : null
+          }
+        </div>
+    );
+  }
+}
 
   const mapStateToProps = () => {
 
@@ -30,11 +65,14 @@ class DrawCardBtn extends Component {
 };
 
 DrawCardBtn.propTypes = {
-  addToCounter: PropTypes.func
+  addToCounter: PropTypes.func,
+  getNewDeck: PropTypes.func
 };
 
 const mapDispatchToProps = {
-  addToCounter
+  addToCounter,
+  getNewDeck,
+  getNewCards,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrawCardBtn);

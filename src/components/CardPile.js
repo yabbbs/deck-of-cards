@@ -1,30 +1,90 @@
-
 import React, { Component } from 'react';
 import '../styles/cardPile.scss';
-// import Button from '@material-ui/core/Button';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { divider } from '../utils/divider';
 
 class CardPile extends Component {
     render() {
+      let cardTypes = divider(this.props.cards);
+
       return (
         <div className='card-container'>
-          <div className='diamonds'>
-            <span>Diamonds:</span>
+          <div className='row'>
+            <span className='title'>Diamonds:</span>
+            <div className='cards'>
+              {
+                cardTypes.diamondCards.map(card => {
+                  return (
+                    <div key={card.code} className='face-container'>
+                      <img src={card.images.svg} className="card"/>
+                      <p className='value'>{card.value} OF {card.suit}</p>
+                    </div>
+                )
+              })}
+            </div>
           </div>
 
-          <div className='Hearts'>
-            <span>Hearts:</span>
+          <div className='row'>
+            <span className='title'>Clubs:</span>
+            <div className='cards'>
+              {
+                cardTypes.clubCards.map(card => {
+                  return (
+                    <div key={card.code} className='face-container'>
+                      <img src={card.images.svg} className="card"/>
+                      <p className='value'>{card.value} OF {card.suit}</p>
+                    </div>
+                )
+              })}
+            </div>
           </div>
 
-          <div className='Spades'>
-            <span>Spades:</span>
+          <div className='row'>
+            <span className='title'>Spades:</span>
+            <div className='cards'>
+              {
+                cardTypes.spadeCards.map(card => {
+                  return (
+                    <div key={card.code} className='face-container'>
+                      <img src={card.images.svg} className="card"/>
+                      <p className='value'>{card.value} OF {card.suit}</p>
+                    </div>
+                )
+              })}
+            </div>
           </div>
 
-          <div className='Clubs'>
-            <span>Clubs:</span>
+          <div className='row'>
+            <span className='title'>Heart:</span>
+            <div className='cards'>
+              {
+                cardTypes.heartCards.map(card => {
+                  return (
+                    <div key={card.code} className='face-container'>
+                      <img src={card.images.svg} className="card"/>
+                      <p className='value'>{card.value} OF {card.suit}</p>
+                    </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       );
     }
   }
-  
-  export default CardPile;
+
+  const mapStateToProps = state => {
+    return {
+      cards: state.BtnViewStateReducer.cards
+    };
+};
+
+CardPile.propTypes = {
+  cards: PropTypes.array
+};
+
+const mapDispatchToProps = {
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardPile);

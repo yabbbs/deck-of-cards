@@ -1,5 +1,8 @@
 Here are the steps I took to finish this project:
 
+I used redux thunk for middleware becuase when I make a call to the api, normally, actions must be plain objects. Returning a function, like we’re doing in Deck of cards api, is outside the ordinary and Redux won’t allow it. Not without some help, anyway.
+
+on the btnclicked component i did a path of least resistance.. idk what called
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

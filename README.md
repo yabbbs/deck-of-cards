@@ -4,9 +4,6 @@ I used redux thunk for middleware becuase when I make a call to the api, normall
 
 on the btnclicked component i did a path of least resistance.. idk what called
 
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:

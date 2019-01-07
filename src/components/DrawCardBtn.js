@@ -32,15 +32,10 @@ class DrawCardBtn extends Component {
   // every time you draw two cards you check a bool if it is true or false 
 
   twoNewCards = () => {
-    axios.get(`https://deckofcardsapi.com/api/deck/${this.state.deckId}/draw/?count=2`)
-    .then(res => {
-      this.props.getNewCards(res.data.cards);
-    })
-    
+      this.props.getNewCards();
   }
 
   render() {
-    // console.log('huh', typeof this.state.cards)
     return (
         <div className='btn-container'>
           <div className="pure-material-button-contained" onClick={this.startNewGame}>

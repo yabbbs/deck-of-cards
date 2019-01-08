@@ -17,7 +17,7 @@ class CardPile extends Component {
                 cardTypes.diamondCards.map(card => {
                   return (
                     <div key={card.code} className='face-container'>
-                      <img src={card.images.svg} className="card"/>
+                      <img src={card.images.svg} alt='card' className="card"/>
                       <p className='value'>{card.value} OF {card.suit}</p>
                     </div>
                 )
@@ -32,7 +32,7 @@ class CardPile extends Component {
                 cardTypes.clubCards.map(card => {
                   return (
                     <div key={card.code} className='face-container'>
-                      <img src={card.images.svg} className="card"/>
+                      <img src={card.images.svg} alt='card' className="card"/>
                       <p className='value'>{card.value} OF {card.suit}</p>
                     </div>
                 )
@@ -47,7 +47,7 @@ class CardPile extends Component {
                 cardTypes.spadeCards.map(card => {
                   return (
                     <div key={card.code} className='face-container'>
-                      <img src={card.images.svg} className="card"/>
+                      <img src={card.images.svg} alt='card' className="card"/>
                       <p className='value'>{card.value} OF {card.suit}</p>
                     </div>
                 )
@@ -62,7 +62,7 @@ class CardPile extends Component {
                 cardTypes.heartCards.map(card => {
                   return (
                     <div key={card.code} className='face-container'>
-                      <img src={card.images.svg} className="card"/>
+                      <img src={card.images.svg} alt='card' className="card"/>
                       <p className='value'>{card.value} OF {card.suit}</p>
                     </div>
                 )

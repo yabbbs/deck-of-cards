@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { 
-  addToCounter,
+import {
   getNewDeck,
   getNewCards
 } from '../actions'
@@ -25,14 +24,17 @@ class DrawCardBtn extends Component {
     axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
       .then(res => {
         this.setState({deckId: res.data.deck_id});
-        this.props.getNewDeck();
+        // this.props.getNewDeck();
     })
   }
 
   // every time you draw two cards you check a bool if it is true or false 
 
   twoNewCards = () => {
-      this.props.getNewCards();
+    axios.get(`https://deckofcardsapi.com/api/deck/${this.state.deckId}/draw/?count=2`)
+    .then(res => {
+      this.props.getNewCards(res.data.cards);
+    })
   }
 
   render() {
@@ -54,20 +56,15 @@ class DrawCardBtn extends Component {
   }
 }
 
-  const mapStateToProps = () => {
+const mapStateToProps = () => ({
 
-    return {
-      
-    };
-};
+});
 
 DrawCardBtn.propTypes = {
-  addToCounter: PropTypes.func,
   getNewDeck: PropTypes.func
 };
 
 const mapDispatchToProps = {
-  addToCounter,
   getNewDeck,
   getNewCards,
 };

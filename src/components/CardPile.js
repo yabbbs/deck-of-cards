@@ -18,7 +18,7 @@ class CardPile extends Component {
                   return (
                     <div key={card.code} className='face-container'>
                       <img src={card.images.svg} alt='card' className="card"/>
-                      <p className='value'>{card.value} OF {card.suit}</p>
+                      <p className='value'>{card.value}</p>
                     </div>
                 )
               })}
@@ -33,7 +33,7 @@ class CardPile extends Component {
                   return (
                     <div key={card.code} className='face-container'>
                       <img src={card.images.svg} alt='card' className="card"/>
-                      <p className='value'>{card.value} OF {card.suit}</p>
+                      <p className='value'>{card.value}</p>
                     </div>
                 )
               })}
@@ -48,7 +48,7 @@ class CardPile extends Component {
                   return (
                     <div key={card.code} className='face-container'>
                       <img src={card.images.svg} alt='card' className="card"/>
-                      <p className='value'>{card.value} OF {card.suit}</p>
+                      <p className='value'>{card.value}</p>
                     </div>
                 )
               })}
@@ -63,7 +63,7 @@ class CardPile extends Component {
                   return (
                     <div key={card.code} className='face-container'>
                       <img src={card.images.svg} alt='card' className="card"/>
-                      <p className='value'>{card.value} OF {card.suit}</p>
+                      <p className='value'>{card.value}</p>
                     </div>
                 )
               })}

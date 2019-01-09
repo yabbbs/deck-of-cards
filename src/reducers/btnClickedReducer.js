@@ -1,31 +1,34 @@
 import {
-    BTN_CLICKED_AMOUNT,
     GET_NEW_DECK,
-    GET_TWO_CARDS
+    GET_TWO_CARDS,
+    SET_MODAL
 } from '../actions';
 
 let initialState = {
-    cards: []
+    cards: [],
+    deckId: '',
+    modalStatus: false
 }
 
 
 export function BtnViewStateReducer(state = initialState, action = {}) {
     switch (action.type) {
-        case BTN_CLICKED_AMOUNT:
-            console.log('hit the reducer');
-
-            return {
-                state
-            };
         case GET_NEW_DECK:
-            console.log('hit get new deck reducer', action.payload)
             return {
+                ...state,
+                deckId: action.payload,
                 cards: []
             }
         case GET_TWO_CARDS:
             return {
+                ...state,
                 cards: state.cards.concat(action.payload)
-            }    
+            }
+        case SET_MODAL:
+            return {
+                ...state,
+                modalStatus: !state.modalStatus
+            }
         default:
             return state;
     }

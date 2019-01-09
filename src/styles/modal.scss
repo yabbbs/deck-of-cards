@@ -1,0 +1,25 @@
+.modal-wrapper {
+    width: 100vw;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    height: 100vh;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal{
+    width: 50vw;
+    height: 50vh;
+    background-color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.exit-modal {
+    position: absolute;
+    top: 24vh;
+    right: 24vw;
+    cursor: pointer;
+}

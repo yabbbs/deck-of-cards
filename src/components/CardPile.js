@@ -56,7 +56,7 @@ class CardPile extends Component {
           </div>
 
           <div className='row'>
-            <span className='title'>Heart:</span>
+            <span className='title'>Hearts:</span>
             <div className='cards'>
               {
                 cardTypes.heartCards.map(card => {

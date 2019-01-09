@@ -1,8 +1,9 @@
-Here are the steps I took to finish this project:
+Steps for this project:
 
-I used redux thunk for middleware becuase when I make a call to the api, normally, actions must be plain objects. Returning a function, like we’re doing in Deck of cards api, is outside the ordinary and Redux won’t allow it. Not without some help, anyway.
+I used React as my Framework, Redux for state managment, Thunk for middleware, Axios for my requests, SCSS for styling, Git for version control, and Zeit for hosting. 
 
-on the btnclicked component i did a path of least resistance.. idk what called
+I wanted to make this app as scalable as possible. I kept all of my state in redux for a single source of truth, and if I wanted to expand this app, doing so would be very easy. 
+
 
 ## Available Scripts
 

@@ -23,9 +23,7 @@ class DrawCardBtn extends Component {
 
   twoNewCards = () => {
     let num = queenChecker(this.props.cards);
-    // console.log('num', num)
     if (num === 4){
-      console.log('you won');
       this.props.setModal();
     } else {
       axios.get(`https://deckofcardsapi.com/api/deck/${this.props.deckId}/draw/?count=2`)
@@ -55,14 +53,11 @@ class DrawCardBtn extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  console.log('state', state)
-  return {
+const mapStateToProps = state => ({
     cards: state.BtnViewStateReducer.cards,
     modalStatus: state.BtnViewStateReducer.modalStatus,
     deckId: state.BtnViewStateReducer.deckId
-  }
-};
+});
 
 DrawCardBtn.propTypes = {
   getNewDeck: PropTypes.func,

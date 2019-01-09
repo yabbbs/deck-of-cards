@@ -11,6 +11,9 @@
     height: 20vh;
     display: flex;
     align-items: center;
+    @media(max-width: 411px) {
+        flex-direction: column;
+    }
 }
 
 .title {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import  '../styles/modal.scss';
@@ -10,29 +11,30 @@ import {
 
   
 class Modal extends Component{
-    closeModal = () => {
-        console.log('close modal');
+    startNewGame = () => {
+        axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
+        .then(res => {
+            this.props.getNewDeck(res.data.deck_id);
+        });
         this.props.setModal();
-        this.props.getNewDeck('');
     }
 
     render(){
         return (
             <div className='modal-wrapper'>
                 <span className='modal'>
-                    <span className='exit-modal' onClick={this.closeModal}>&#215;</span>
+                    <span className='exit-modal' onClick={this.props.setModal}>&#215;</span>
                     <span>CONGRATS YOU DREW ALL OF THE QUEENS</span>
+                    <button className="pure-material-button-contained" onClick={this.startNewGame}>Start New Game</button>
                 </span>
             </div>
         );
     }
 }
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = state => ({
       cards: state.BtnViewStateReducer.cards
-    }
-  };
+  });
   
   Modal.propTypes = {
     getNewDeck: PropTypes.func,

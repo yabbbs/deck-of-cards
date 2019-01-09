@@ -11,7 +11,7 @@
 
 .modal{
     width: 50vw;
-    height: 50vh;
+    height: 20vh;
     background-color: white;
     text-align: center;
     padding: 20px;
@@ -19,7 +19,37 @@
 
 .exit-modal {
     position: absolute;
-    top: 24vh;
+    top: 38vh;
     right: 24vw;
     cursor: pointer;
+}
+
+.pure-material-button-contained {
+    margin-top: 40px;
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    padding: 0 16px;
+    height: 36px;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 14px;
+    font-weight: 500;
+    width: 200px;
+    line-height: 36px;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    outline: none;
+}
+
+.pure-material-button-contained:hover,
+.pure-material-button-contained:focus {
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.pure-material-button-contained:active {
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }

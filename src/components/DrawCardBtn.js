@@ -15,7 +15,6 @@ import '../styles/button.scss';
 class DrawCardBtn extends Component {
 
   startNewGame = () => {
-    this.setState({cards: []});
     axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
     .then(res => {
         this.props.getNewDeck(res.data.deck_id);

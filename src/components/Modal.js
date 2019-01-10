@@ -25,7 +25,7 @@ class Modal extends Component{
                 <span className='modal'>
                     <span className='exit-modal' onClick={this.props.setModal}>&#215;</span>
                     <span>CONGRATS YOU DREW ALL OF THE QUEENS</span>
-                    <button className="pure-material-button-contained" onClick={this.startNewGame}>Start New Game</button>
+                    <button className="modal-btn" onClick={this.startNewGame}>Start New Game</button>
                 </span>
             </div>
         );
